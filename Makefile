@@ -2,12 +2,13 @@ include_dir=build
 source=chapters/*.md
 title='高效思维工具'
 filename=README
+imageHost=https://github.com/linksgo2011/thought-tools-book/raw/master/
 
 all: html epub rtf pdf mobi
 
 markdown:
 	awk 'FNR==1{print ""}{print}' $(source) > $(filename).md
-	sed -i "" 's@](../images@](images@g' $(filename).md
+	sed -i "" 's@](../images@]($(imageHost)images@g' $(filename).md
 
 html: markdown
 	pandoc -s $(filename).md -t html5 -o index.html -c style.css \
