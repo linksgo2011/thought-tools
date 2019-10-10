@@ -6,6 +6,10 @@ imageHost=https://github.com/linksgo2011/thought-tools-book/raw/master/
 
 all: html epub rtf pdf mobi
 
+# replace image src, usage:  make chapter=chapter-01-retro chapter
+chapter: 
+	sed 's@](../images@]($(imageHost)images@g' chapters/$(chapter).md > output/$(chapter).md
+
 markdown:
 	awk 'FNR==1{print ""}{print}' $(source) > $(filename).md
 	sed -i "" 's@](../images@]($(imageHost)images@g' $(filename).md
