@@ -1,6 +1,6 @@
 include_dir=build
 source=chapters/*.md
-title='Domain Driven Architecture Book'
+title='高效思维工具'
 filename=README
 
 all: html epub rtf pdf mobi
